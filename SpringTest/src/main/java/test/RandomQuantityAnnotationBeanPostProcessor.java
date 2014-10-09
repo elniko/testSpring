@@ -14,6 +14,12 @@ public class RandomQuantityAnnotationBeanPostProcessor implements BeanPostProces
 
 	public Object postProcessAfterInitialization(Object bean, String arg1)
 			throws BeansException {
+		
+		return bean;
+	}
+
+	public Object postProcessBeforeInitialization(Object bean, String arg1)
+			throws BeansException {
 		Field[] fields = bean.getClass().getDeclaredFields();
 		for(Field field : fields) {
 			RandomQuantity annotation = field.getAnnotation(RandomQuantity.class);
@@ -27,12 +33,6 @@ public class RandomQuantityAnnotationBeanPostProcessor implements BeanPostProces
 				
 			}
 		}
-		return bean;
-	}
-
-	public Object postProcessBeforeInitialization(Object bean, String arg1)
-			throws BeansException {
-		
 		return bean;
 	}
 

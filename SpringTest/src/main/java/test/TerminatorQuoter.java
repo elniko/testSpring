@@ -1,13 +1,13 @@
 package test;
 import javax.annotation.PostConstruct;
 
-
+@Profiling
 public class TerminatorQuoter implements Quoter{
 
 	String quote;
 	
 	@RandomQuantity(min= 2, max = 7)	
-	private int repeat ;
+	private int rep ;
 	
 	public void setQuote(String quote) {
 		this.quote = quote;
@@ -17,16 +17,17 @@ public class TerminatorQuoter implements Quoter{
 	public void initMethod() {
 		
 		System.out.println("Phase2");
-		System.out.println(repeat);
+		System.out.println(rep);
 	}
 	
 	public TerminatorQuoter() {
 		System.out.println("Phase1");
-		System.out.println(repeat);
+		
 		
 	}
 	public void sayQuote() {
-		for(int i=0; i< repeat ; i++) {
+		System.out.println(rep);
+		for(int i=0; i< rep ; i++) {
 		   System.out.println(quote);
 		}
 		

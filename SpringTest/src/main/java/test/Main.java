@@ -5,13 +5,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		Quoter qu = ctx.getBean(TerminatorQuoter.class);
 		
-		qu.sayQuote();
+		while(true) {
+			Thread.sleep(100);
+			ctx.getBean(Quoter.class).sayQuote();
+		
+		}
 		
 	}
 
